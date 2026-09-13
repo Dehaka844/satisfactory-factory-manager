@@ -1,0 +1,154 @@
+/* SEARCHABLE SELECT */
+
+.searchable-select {
+    position: relative;
+    width: 100%;
+}
+
+.searchable-select-trigger {
+    width: 100%;
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 12px;
+
+    background: #2a2a2a;
+    color: #e8e8e8;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font: inherit;
+    text-align: left;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+.searchable-select-trigger:hover {
+    background: #303030;
+    border-color: #555;
+}
+
+.searchable-select-trigger-open {
+    border-color: #777;
+}
+
+.searchable-select-trigger-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.searchable-select-trigger-icon {
+    margin-left: 10px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    transition:
+        transform 0.15s ease;
+}
+
+.searchable-select-trigger-open
+.searchable-select-trigger-icon {
+    transform: rotate(180deg);
+}
+
+.searchable-select-dropdown {
+    position: absolute;
+
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    background: #242424;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+.searchable-select-dropdown-open {
+    display: block;
+}
+
+.searchable-select-search {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 10px 12px;
+
+    background: #1e1e1e;
+    color: #e8e8e8;
+
+    border: none;
+    border-bottom: 1px solid #3f3f3f;
+
+    outline: none;
+
+    font: inherit;
+}
+
+.searchable-select-search::placeholder {
+    color: #777;
+}
+
+.searchable-select-options {
+    max-height: 240px;
+
+    overflow-y: auto;
+}
+
+.searchable-select-option {
+    width: 100%;
+
+    display: block;
+
+    padding: 10px 12px;
+
+    background: transparent;
+    color: #ddd;
+
+    border: none;
+
+    cursor: pointer;
+
+    font: inherit;
+    text-align: left;
+}
+
+.searchable-select-option:hover {
+    background: #353535;
+}
+
+.searchable-select-option-selected {
+    background: #303030;
+
+    color: #fff;
+}
+
+.searchable-select-empty {
+    padding: 12px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    text-align: center;
+}
