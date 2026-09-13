@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Satisfactory Factory Manager</title>
+
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header class="app-header">
+            <h1>Satisfactory Factory Manager</h1>
+        </header>
+
+        <div class="app-body">
+
+            <aside class="sidebar">
+
+                <div class="sidebar-header">
+                    <h2>Mis fábricas</h2>
+
+                    <button
+                        class="import-factory-button"
+                        id="import-factory-button"
+                    >
+                        📥 Importar fábrica
+                    </button>
+
+                    
+                </div>
+
+                <div id="factory-list" class="factory-list">
+                </div>
+
+                <div class="sidebar-footer">
+
+                    <button id="new-factory-button" class="new-factory-button">
+                        <span>＋</span>
+                        <span>Nueva fábrica</span>
+                    </button>
+
+                    <button
+                        id="backup-database-button"
+                        class="backup-database-button"
+                    >
+                        💾 Backup
+                    </button>
+
+                </div>
+
+            </aside>
+
+            <main id="content" class="content">
+
+                <div class="welcome-screen">
+
+                    <div class="welcome-icon">
+                        🏭
+                    </div>
+
+                    <h2>Bienvenido</h2>
+
+                    <p>
+                        Selecciona una fábrica de la izquierda
+                        para comenzar.
+                    </p>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div id="factory-dialog" class="dialog-overlay hidden">
+
+        <div class="dialog">
+
+            <div class="dialog-header">
+                <h2>Nueva fábrica</h2>
+            </div>
+
+            <form id="factory-form">
+
+                <div class="form-group">
+
+                    <label for="factory-name">
+                        Nombre
+                    </label>
+
+                    <input
+                        id="factory-name"
+                        name="name"
+                        type="text"
+                        placeholder="Nombre de la fábrica"
+                        required
+                        maxlength="100"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="factory-description">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="factory-description"
+                        name="description"
+                        placeholder="Descripción opcional"
+                        rows="4"
+                    ></textarea>
+
+                </div>
+
+                <div class="dialog-actions">
+
+                    <button
+                        type="button"
+                        id="cancel-factory-button"
+                        class="dialog-button secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="dialog-button primary"
+                    >
+                        Crear
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="delete-factory-dialog" class="dialog-overlay hidden">
+
+        <div class="dialog">
+
+            <div class="dialog-header">
+                <h2>Eliminar fábrica</h2>
+            </div>
+
+            <div class="delete-dialog-content">
+
+                <p>
+                    ¿Seguro que quieres eliminar
+                    <strong id="delete-factory-name"></strong>?
+                </p>
+
+                <p class="delete-warning">
+                    Esta acción no se puede deshacer.
+                </p>
+
+            </div>
+
+            <div class="dialog-actions">
+
+                <button
+                    type="button"
+                    id="cancel-delete-factory-button"
+                    class="dialog-button secondary"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    id="confirm-delete-factory-button"
+                    class="dialog-button danger"
+                >
+                    Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="section-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+
+            <div class="dialog-header">
+                <h2>Nueva sección</h2>
+            </div>
+
+            <form id="section-form">
+
+                <div class="form-group">
+                    <label for="section-title">Título</label>
+
+                    <input
+                        id="section-title"
+                        name="title"
+                        type="text"
+                        placeholder="Nombre de la sección"
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="dialog-actions">
+
+                    <button
+                        type="button"
+                        id="cancel-section-button"
+                        class="dialog-button secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="dialog-button primary"
+                    >
+                        Crear
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div id="delete-section-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+
+            <div class="dialog-header">
+                <h2>Eliminar sección</h2>
+            </div>
+
+            <div class="delete-dialog-content">
+                <p>
+                    ¿Seguro que quieres eliminar
+                    <strong id="delete-section-title"></strong>?
+                </p>
+
+                <p class="delete-warning">
+                    Esta acción no se puede deshacer.
+                </p>
+            </div>
+
+            <div class="dialog-actions">
+
+                <button
+                    type="button"
+                    id="cancel-delete-section-button"
+                    class="dialog-button secondary"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    id="confirm-delete-section-button"
+                    class="dialog-button danger"
+                >
+                    Eliminar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="/src/ts/main.ts"></script>
+
+</body>
+</html>
